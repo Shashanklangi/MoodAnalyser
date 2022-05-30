@@ -12,7 +12,9 @@ namespace MoodAnalyzerTest
         {
             moodAnalyzer = new MoodAnalyzer();
         }
-
+        //<summary>
+        //uc1-1.1 :Given message "I am in SAD mood" returns SAD
+        //</summary>
         [Test]
         public void Given_Message_In_Sad_Mood_Return_Sad_Message()
         {
@@ -27,6 +29,9 @@ namespace MoodAnalyzerTest
             //Assert
             Assert.AreEqual(expected, actual);
         }
+        //<summary>
+        //uc1-1.2 :Given message "I am in any mood" returns HAPPY
+        //</summary>
         [Test]
         public void Given_Message_In_Happy_Mood_Return_Happy_Message()
         {
