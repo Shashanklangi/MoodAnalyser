@@ -10,11 +10,11 @@ namespace MoodAnalyzerTest
     {
         public string message;
 
-        public MoodAnalyzer()
+        public MoodAnalyzer(string message)
         {
-            this.message = " I am in SAD mood";
+            this.message = message;
         }
-        public string AnalyseMood(string Message)
+        public string AnalyseMood()
         {
             if (message.Contains("SAD"))
             {
