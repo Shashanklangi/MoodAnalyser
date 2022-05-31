@@ -10,7 +10,7 @@ namespace MoodAnalyzerTest
         [SetUp]
         public void Setup()
         {
-            moodAnalyzer = new MoodAnalyzer(" I am in SAD mood");
+            moodAnalyzer = new MoodAnalyzer("I am in SAD Mood");
         }
         //<summary>
         //uc1Refactor-1.1 :Given message "I am in SAD mood" returns SAD
@@ -37,6 +37,23 @@ namespace MoodAnalyzerTest
         {
             //Arrange
             string message = "I am in Any Mood";
+            moodAnalyzer = new MoodAnalyzer(message);
+
+            //Act
+            string expected = "HAPPY";
+            string actual = moodAnalyzer.AnalyseMood();
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+        //<summary>
+        //uc2-2.1 :Given message "Handle Null Exception" returns HAPPY
+        //</summary>
+        [Test]
+        public void Handle_Null_Exception_returns_HAPPY()
+        {
+            //Arrange
+            string message = null;
             moodAnalyzer = new MoodAnalyzer(message);
 
             //Act
