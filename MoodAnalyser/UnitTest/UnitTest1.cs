@@ -53,7 +53,7 @@ namespace MoodAnalyzerTest
         public void Handle_Null_Exception_returns_HAPPY()
         {
             //Arrange
-            string message = null;
+            string message = " ";
             moodAnalyzer = new MoodAnalyzer(message);
 
             //Act
@@ -62,6 +62,47 @@ namespace MoodAnalyzerTest
 
             //Assert
             Assert.AreEqual(expected, actual);
+        }
+        //<summary>
+        //uc3.1 :Given message "Handle Null Exception" returns HAPPY
+        //</summary>
+        [Test]
+        public void Given_NullMood_Return_CustomException()
+        {
+            //Arrange
+            string message = null;
+            string expected = "Mood should not be null";
+            try
+            {
+                //Act
+                moodAnalyzer = new MoodAnalyzer(message);
+            }
+            catch (Moodanalyzercustomexception exception)
+            {
+                //Assert
+                Assert.AreEqual(expected, exception.Message);
+            }
+        }
+        //<summary>
+        //uc3.2 :Given Empty Mood throw custom exception
+        //</summary>
+        [Test]
+        public void Given_EmptyMood_Return_CustomException()
+        {
+            //Arrange
+            string message = " ";
+            string expected = "Mood should not be empty";
+            try
+            {
+                //Act
+                moodAnalyzer = new MoodAnalyzer(message);
+            }
+            catch (Moodanalyzercustomexception exception)
+            {
+                //Assert
+                Assert.AreEqual(expected, exception.Message);
+            }
+
         }
     }
 }
