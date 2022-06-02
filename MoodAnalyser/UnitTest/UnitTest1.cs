@@ -190,5 +190,31 @@ namespace MoodAnalyzerTest
                 Assert.AreEqual(expected, exception.Message);
             }
         }
+        /// <summary>
+        /// TC-6.1  Given Happy Message Using Reflector When Proper Should Return Happy Mood Should Return MoodAnalyser Object
+        /// </summary>
+        [Test]
+        public void GivenHppyMessge_Proper_ShouldReturnHppy()
+        {
+            string expected = "HAPPY";
+            string mood = MoodAnalyzerFactory.InvokeAnalyseMood("HAPPY", "AnalyseMood");
+            Assert.AreEqual(expected, mood);
+        }
+        /// <summary>
+        /// TC-6.2  Given Happy Message Using Reflector When ImProper Method Should Return Happy Mood Should Throw Exception
+        /// </summary>
+        [Test]
+        public void GivenHppyMessge_WhenIMProperMethod_ShouldThrowException()
+        {
+            string expected = "Constructor not found";
+            try
+            {
+                string mood = MoodAnalyzerFactory.InvokeAnalyseMood("HAPPY", "Analyzer");
+            }
+            catch (Moodanalyzercustomexception exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
+        }
     }
 }
